@@ -22,18 +22,18 @@ export default function HowItWorks() {
   const steps = [
     {
       icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ecd_icon-4.svg",
-      title: "Fast and easy setup to get started right away",
-      description: "Fast-track your setup with easy onboarding designed to get you going swiftly.",
+      title: "Upload Your Plans",
+      description: "Simply upload your landscape plans, blueprints, or satellite images to get started.",
     },
     {
       icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ece_icon-5.svg",
-      title: "Unlock insights and make decisions in real time",
-      description: "Leverage the power of our advanced AI engine to deliver real-time, actionable insights.",
+      title: "AI Analyzes & Measures",
+      description: "Our AI automatically identifies plants, measures areas, and counts landscape elements with precision.",
     },
     {
       icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ecc_icon-6.svg",
-      title: "Support that's with you every step of the way",
-      description: "Dedicated to your success through continuous support and regular updates that keep you ahead.",
+      title: "Export to Estimates",
+      description: "Export accurate quantities directly to your estimating software for faster, more competitive bids.",
     },
   ];
 
@@ -48,20 +48,13 @@ export default function HowItWorks() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center justify-center mb-6" data-testid="how-it-works-icon">
-            <img 
-              src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ed4_icon-2.svg" 
-              alt="How It Works Icon" 
-              className="w-12 h-12"
-            />
-          </div>
-          <p className="text-primary text-lg font-medium mb-4" data-testid="how-it-works-badge">How It Works ?</p>
+          <p className="text-primary text-lg font-medium mb-4" data-testid="how-it-works-badge">How It Works</p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="how-it-works-title">
-            <span className="gradient-text">Empower your workflow with</span><br />
-            <span className="gradient-text">intelligent automation</span>
+            <span className="gradient-text">Simple 3-step process</span><br />
+            <span className="gradient-text">for accurate takeoffs</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="how-it-works-subtitle">
-            Supercharge your workflow using intelligent systems
+            From plan upload to accurate estimate in minutes, not hours
           </p>
         </div>
 
@@ -89,8 +82,8 @@ export default function HowItWorks() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`} data-testid="how-it-works-image">
           <img 
-            src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b7190cfc611e42deb6b3fa_3dfdc36491acd79fc7efa6647179177e_thumb-18.webp" 
-            alt="Dashboard Preview" 
+            src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/CountDemo-new-ezgif.com-speed.gif" 
+            alt="Bobyard Landscaping Takeoff Process" 
             className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
           />
         </div>
