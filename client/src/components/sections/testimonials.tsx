@@ -46,7 +46,7 @@ export default function Testimonials() {
   return (
     <section 
       id="testimonials"
-      className="py-20 bg-gradient-to-b from-muted/20 to-background" 
+      className="py-20 testimonials-pattern" 
       data-testid="section-testimonials"
     >
       <div className="container mx-auto px-4 lg:px-6">

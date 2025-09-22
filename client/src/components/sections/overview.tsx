@@ -22,7 +22,7 @@ export default function Overview() {
   return (
     <section 
       id="overview"
-      className="py-20 bg-gradient-to-b from-muted/20 to-background" 
+      className="py-20 overview-pattern" 
       data-testid="section-overview"
     >
       <div className="container mx-auto px-4 lg:px-6">

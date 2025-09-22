@@ -71,7 +71,7 @@ export default function Pricing() {
   return (
     <section 
       id="pricing"
-      className="py-20 bg-gradient-to-b from-background to-muted/20" 
+      className="py-20 pricing-pattern" 
       data-testid="section-pricing"
     >
       <div className="container mx-auto px-4 lg:px-6">

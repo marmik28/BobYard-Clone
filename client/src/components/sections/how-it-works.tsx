@@ -40,7 +40,7 @@ export default function HowItWorks() {
   return (
     <section 
       id="how-it-works"
-      className="py-20 bg-gradient-to-b from-muted/20 to-background" 
+      className="py-20 aurora-glow" 
       data-testid="section-how-it-works"
     >
       <div className="container mx-auto px-4 lg:px-6">

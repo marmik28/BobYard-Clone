@@ -22,7 +22,7 @@ export default function FeaturesShowcase() {
   return (
     <section 
       id="features-showcase"
-      className="py-20 bg-gradient-to-b from-background to-muted/20" 
+      className="py-20 features-pattern" 
       data-testid="section-features-showcase"
     >
       <div className="container mx-auto px-4 lg:px-6">
