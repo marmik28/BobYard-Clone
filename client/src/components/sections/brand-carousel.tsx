@@ -1,12 +1,14 @@
 export default function BrandCarousel() {
   const brands = [
-    "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ec7_brand-1.svg",
-    "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ec8_brand-2.svg",
-    "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ec9_brand-3.svg",
-    "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863eca_brand-4.svg",
-    "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ecb_brand-5.svg",
-    "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ed2_brand-6.svg",
-    "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ed3_brand-7.svg",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/Untitled+design+(6)+(1).png",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/Untitled+design+(4)+(1).png",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/fGlogo-green+(1).png",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/43e09820-eced-436a-b1b8-a661f4cac82c_removalai_preview+(1).png",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/Untitled+design+(7)+(1).png",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/image+(20).png",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/rafael-landscaping-logo-white+(1)+(2).png",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/California-Turf-and-Landscape-Logo+(1).png",
+    "https://bobyard-public-images.s3.us-west-2.amazonaws.com/image+(19).png",
   ];
 
   return (
@@ -14,7 +16,7 @@ export default function BrandCarousel() {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="text-center mb-12">
           <p className="text-muted-foreground text-lg" data-testid="carousel-title">
-            Trusted by customer-lead product companies
+            Trusted by next-gen landscapers
           </p>
         </div>
 

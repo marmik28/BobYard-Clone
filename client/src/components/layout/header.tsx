@@ -18,33 +18,50 @@ export default function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/80 backdrop-blur-md' : 'bg-transparent'
-    } border-b border-border/40`}>
+    <>
+      {/* Hiring Announcement Bar */}
+      <div className="bg-primary/20 border-b border-primary/30 py-2 text-center text-sm" data-testid="announcement-bar">
+        <span className="text-foreground">
+          We are hiring across many roles! 
+        </span>
+        <a 
+          href="#" 
+          className="text-primary hover:text-primary/80 transition-colors ml-2 font-medium"
+          data-testid="link-careers"
+        >
+          See postings
+        </a>
+      </div>
+      
+      <header className={`fixed top-8 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-background/80 backdrop-blur-md' : 'bg-transparent'
+      } border-b border-border/40`}>
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2" data-testid="logo">
             <img 
-              src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b3ec2f8c8d775f3bde1e_21302f07dcbe0bb674682117b2e33bfc_logo.svg" 
-              alt="Exoraz Logo" 
+              src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/landing4-logo.png" 
+              alt="Bobyard Logo" 
               className="h-8 w-auto"
             />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8" data-testid="nav-desktop">
-            <a href="#" className="text-foreground hover:text-primary transition-colors" data-testid="nav-home">Home</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-about">About us</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-features">Features</a>
-            <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-pricing">Pricing</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-blog">Blog</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-sample">Sample</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-demo">Demo</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-careers">Careers</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-news">News</a>
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button className="btn-primary px-6 py-2 rounded-lg text-primary-foreground font-medium" data-testid="button-contact">
-              Contact
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors font-medium" data-testid="link-login">
+              Login
+            </a>
+            <Button className="btn-primary px-6 py-2 rounded-lg text-primary-foreground font-medium" data-testid="button-try-now">
+              Try now
             </Button>
           </div>
 
@@ -61,17 +78,17 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden fixed top-16 right-0 bottom-0 w-64 bg-card border-l border-border transition-transform duration-300 ${
+      <div className={`lg:hidden fixed top-24 right-0 bottom-0 w-64 bg-card border-l border-border transition-transform duration-300 ${
         isMenuOpen ? 'transform translate-x-0' : 'transform translate-x-full'
       }`} data-testid="nav-mobile">
         <nav className="p-6 space-y-6">
-          <a href="#" className="block text-foreground hover:text-primary transition-colors" data-testid="nav-mobile-home">Home</a>
-          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-about">About us</a>
-          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-features">Features</a>
-          <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-pricing">Pricing</a>
-          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-blog">Blog</a>
-          <Button className="btn-primary w-full px-6 py-2 rounded-lg text-primary-foreground font-medium mt-6" data-testid="button-mobile-contact">
-            Contact
+          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-sample">Sample</a>
+          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-demo">Demo</a>
+          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-careers">Careers</a>
+          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-news">News</a>
+          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors mt-6" data-testid="nav-mobile-login">Login</a>
+          <Button className="btn-primary w-full px-6 py-2 rounded-lg text-primary-foreground font-medium mt-4" data-testid="button-mobile-try-now">
+            Try now
           </Button>
         </nav>
       </div>
@@ -79,11 +96,12 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 bg-background/50 backdrop-blur-sm top-16"
+          className="lg:hidden fixed inset-0 bg-background/50 backdrop-blur-sm top-24"
           onClick={() => setIsMenuOpen(false)}
           data-testid="mobile-menu-overlay"
         />
       )}
     </header>
+    </>
   );
 }
