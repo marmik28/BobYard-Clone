@@ -25,43 +25,47 @@ export default function Pricing() {
 
   const pricingPlans = [
     {
-      name: "Basic",
-      monthlyPrice: "$99.00",
-      yearlyPrice: "$199.00",
+      name: "Solo",
+      monthlyPrice: "$49.00",
+      yearlyPrice: "$39.00",
       subtitle: "per user / month",
       features: [
-        "Visualization of Task Progress",
-        "Simple Collaboration Instruments", 
-        "Features for Deadline Reminders",
-        "An easy-to-use interface"
+        "Up to 20 takeoffs per month",
+        "AI object counting",
+        "Basic measurement tools", 
+        "PDF export"
       ],
       checkmarkIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68bfccfb36f1426d54b87865_checkbox-multiple-line.svg",
       featured: false
     },
     {
-      name: "Standard",
-      monthlyPrice: "$149.00",
-      yearlyPrice: "$360.00",
-      subtitle: "10 user / month",
+      name: "Professional",
+      monthlyPrice: "$99.00",
+      yearlyPrice: "$79.00",
+      subtitle: "per user / month",
       features: [
-        "Visualization of Project Progress",
-        "Visualizing Milestone Progress",
-        "Visualization of Work Status",
-        "Monitoring of Work Progress"
+        "Unlimited takeoffs",
+        "Advanced AI analysis",
+        "Full measurement suite",
+        "Export to estimating software",
+        "Team collaboration",
+        "Priority support"
       ],
       checkmarkIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68bfccfb260a2951235fe9f4_Vector.svg",
       featured: true
     },
     {
-      name: "Premium", 
-      monthlyPrice: "$299.00",
-      yearlyPrice: "$700.00",
-      subtitle: "100 user / month",
+      name: "Enterprise", 
+      monthlyPrice: "$199.00",
+      yearlyPrice: "$159.00",
+      subtitle: "per user / month",
       features: [
-        "Monitoring Workflow Status",
-        "Tracking Activity Completion",
-        "Task Journey Monitoring",
-        "Task Flow Diagram"
+        "Everything in Professional",
+        "Custom integrations",
+        "Dedicated account manager",
+        "Training & onboarding",
+        "Advanced reporting",
+        "API access"
       ],
       checkmarkIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68bfccfb5136c159a04b3ad8_Vector-2.svg",
       featured: false
@@ -79,20 +83,13 @@ export default function Pricing() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center justify-center mb-6" data-testid="pricing-icon">
-            <img 
-              src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863eda_icon-14.svg" 
-              alt="Pricing Icon" 
-              className="w-12 h-12"
-            />
-          </div>
-          <p className="text-primary text-lg font-medium mb-4" data-testid="pricing-badge">Pricing Plan</p>
+          <p className="text-primary text-lg font-medium mb-4" data-testid="pricing-badge">Takeoff Plans</p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="pricing-title">
-            <span className="gradient-text">Choose the plan that fits your</span><br />
-            <span className="gradient-text">business needs</span>
+            <span className="gradient-text">Plans built for</span><br />
+            <span className="gradient-text">landscaping professionals</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="pricing-subtitle">
-            Choose the best package based on your company's needs.
+            From solo landscapers to enterprise crews, we've got you covered.
           </p>
 
           {/* Billing Toggle */}
@@ -145,7 +142,7 @@ export default function Pricing() {
                 className="btn-primary w-full py-3 rounded-lg font-semibold mb-4" 
                 data-testid={`button-trial-${plan.name.toLowerCase()}`}
               >
-                Start 30 Days Free Trial
+                Start Free Trial
               </Button>
 
               <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground" data-testid={`security-note-${plan.name.toLowerCase()}`}>
@@ -164,9 +161,9 @@ export default function Pricing() {
         <div className={`text-center mt-16 transition-all duration-700 delay-400 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`} data-testid="demo-cta">
-          <h3 className="text-2xl font-bold mb-4" data-testid="demo-title">Or you might want a quick demo?</h3>
+          <h3 className="text-2xl font-bold mb-4" data-testid="demo-title">Want to see it in action?</h3>
           <p className="text-muted-foreground mb-8" data-testid="demo-description">
-            Doing planning the with away. Rendering the are gleaning him be domed is will. That key the not about concept.
+            See how Bobyard can streamline your takeoff process with a personalized demo using your own landscape plans.
           </p>
           <Button className="btn-primary px-8 py-3 rounded-lg font-semibold" data-testid="button-book-demo">
             Book a free demo call
