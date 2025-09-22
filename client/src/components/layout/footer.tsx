@@ -7,13 +7,13 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6" data-testid="footer-logo">
               <img 
-                src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b3ec2f8c8d775f3bde1e_21302f07dcbe0bb674682117b2e33bfc_logo.svg" 
-                alt="Exoraz Logo" 
+                src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/landing4-logo.png" 
+                alt="Bobyard Logo" 
                 className="h-8 w-auto"
               />
             </div>
             <p className="text-muted-foreground max-w-md" data-testid="footer-description">
-              Unlock the power of automation with our cutting-edge tools designed to streamline your workflow.
+              AI-powered takeoff and estimating platform for landscaping professionals. Get faster, more accurate estimates with intelligent automation.
             </p>
           </div>
 
@@ -21,11 +21,11 @@ export default function Footer() {
           <div data-testid="footer-links">
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-home">Home</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-about">About us</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-features">Features</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-sample">Sample</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-demo">Demo</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-careers">Careers</a></li>
               <li><a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-pricing">Pricing</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-blog">Blog</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="footer-link-news">News</a></li>
             </ul>
           </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-muted-foreground text-sm" data-testid="footer-copyright">
-              © 2024 Exoraz. All rights reserved.
+              © 2024 Bobyard. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0" data-testid="footer-social">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="social-twitter">

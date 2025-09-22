@@ -21,24 +21,24 @@ export default function Testimonials() {
 
   const testimonials = [
     {
-      author: "Myra Wunsch",
-      role: "Operations Manager",
+      author: "Mike Rodriguez",
+      role: "Owner, Green Valley Landscaping",
       avatar: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ede_author-1.webp",
-      quote: "This platform has completely streamlined our workflow. What used to take hours of manual effort is now done in minutes. It feels like we've without the extra cost.",
+      quote: "Bobyard cut our takeoff time from 3 hours to 20 minutes. The AI plant counting is incredibly accurate, and we're winning more bids with faster turnaround times.",
       quoteIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863edf_icon-18.svg"
     },
     {
-      author: "Ronald Heathcote", 
-      role: "CEO",
+      author: "Sarah Chen", 
+      role: "Project Manager, Urban Oasis Design",
       avatar: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b5494e137b14fb2c24edb5_author-4.webp",
-      quote: "The real-time insights have helped us make smarter decisions faster. It's like having an analytics expert on call 24/7.",
+      quote: "The measurement tools are a game-changer. What used to require multiple site visits can now be done from the office. Our clients love the detailed, accurate estimates.",
       quoteIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863edf_icon-18.svg"
     },
     {
-      author: "Kerry Bartell",
-      role: "Business Analyst", 
+      author: "James Thompson",
+      role: "Estimator, Premier Landscapes", 
       avatar: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b58d4acbebc1cd8d975913_author-7.webp",
-      quote: "We reduced our manual reporting time by 70% thanks to this platform. That's time we now spend growing our business instead of crunching numbers.",
+      quote: "Bobyard's export feature seamlessly integrates with our estimating software. No more manual data entry - everything flows perfectly into our workflow.",
       quoteIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b54913d464d3fc085fe7b1_icon-30.svg"
     }
   ];
@@ -54,20 +54,13 @@ export default function Testimonials() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center justify-center mb-6" data-testid="testimonials-icon">
-            <img 
-              src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863edb_icon-15.svg" 
-              alt="Testimonial Icon" 
-              className="w-12 h-12"
-            />
-          </div>
-          <p className="text-primary text-lg font-medium mb-4" data-testid="testimonials-badge">Testimonial</p>
+          <p className="text-primary text-lg font-medium mb-4" data-testid="testimonials-badge">Customer Stories</p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="testimonials-title">
-            <span className="gradient-text">What did happy clients have to</span><br />
-            <span className="gradient-text">say about us?</span>
+            <span className="gradient-text">Landscapers love Bobyard for</span><br />
+            <span className="gradient-text">faster, accurate takeoffs</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="testimonials-subtitle">
-            Innovative solutions for modern business needs. Explore how we empower organizations of all sizes, from emerging.
+            See how landscaping professionals are transforming their estimating process with AI-powered takeoffs.
           </p>
         </div>
 
