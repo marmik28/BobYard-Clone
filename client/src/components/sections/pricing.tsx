@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 
 export default function Pricing() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isYearly, setIsYearly] = useState(true);
+  const [inputs, setInputs] = useState({
+    hoursPerTakeoff: 3,
+    hourlyRate: 75,
+    takeoffsPerMonth: 20
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,56 +25,22 @@ export default function Pricing() {
     return () => observer.disconnect();
   }, []);
 
-  const toggleBilling = () => setIsYearly(!isYearly);
+  const updateInput = (field: keyof typeof inputs, value: number) => {
+    setInputs(prev => ({ ...prev, [field]: value }));
+  };
 
-  const pricingPlans = [
-    {
-      name: "Solo",
-      monthlyPrice: "$49.00",
-      yearlyPrice: "$39.00",
-      subtitle: "per user / month",
-      features: [
-        "Up to 20 takeoffs per month",
-        "AI object counting",
-        "Basic measurement tools", 
-        "PDF export"
-      ],
-      checkmarkIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68bfccfb36f1426d54b87865_checkbox-multiple-line.svg",
-      featured: false
-    },
-    {
-      name: "Professional",
-      monthlyPrice: "$99.00",
-      yearlyPrice: "$79.00",
-      subtitle: "per user / month",
-      features: [
-        "Unlimited takeoffs",
-        "Advanced AI analysis",
-        "Full measurement suite",
-        "Export to estimating software",
-        "Team collaboration",
-        "Priority support"
-      ],
-      checkmarkIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68bfccfb260a2951235fe9f4_Vector.svg",
-      featured: true
-    },
-    {
-      name: "Enterprise", 
-      monthlyPrice: "$199.00",
-      yearlyPrice: "$159.00",
-      subtitle: "per user / month",
-      features: [
-        "Everything in Professional",
-        "Custom integrations",
-        "Dedicated account manager",
-        "Training & onboarding",
-        "Advanced reporting",
-        "API access"
-      ],
-      checkmarkIcon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68bfccfb5136c159a04b3ad8_Vector-2.svg",
-      featured: false
-    }
-  ];
+  // Calculations
+  const currentMonthlyCost = inputs.hoursPerTakeoff * inputs.hourlyRate * inputs.takeoffsPerMonth;
+  const currentYearlyCost = currentMonthlyCost * 12;
+  
+  // With Bobyard (85% time reduction)
+  const bobyard_hours_per_takeoff = inputs.hoursPerTakeoff * 0.15; // 85% reduction
+  const bobyardMonthlyCost = bobyard_hours_per_takeoff * inputs.hourlyRate * inputs.takeoffsPerMonth;
+  const bobyardYearlyCost = bobyardMonthlyCost * 12;
+  
+  const monthlySavings = currentMonthlyCost - bobyardMonthlyCost;
+  const yearlySavings = currentYearlyCost - bobyardYearlyCost;
+  const timeSavedPerMonth = (inputs.hoursPerTakeoff - bobyard_hours_per_takeoff) * inputs.takeoffsPerMonth;
 
   return (
     <section 
@@ -83,91 +53,162 @@ export default function Pricing() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <p className="text-primary text-lg font-medium mb-4" data-testid="pricing-badge">Takeoff Plans</p>
+          <p className="text-primary text-lg font-medium mb-4" data-testid="pricing-badge">ROI Calculator</p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="pricing-title">
-            <span className="gradient-text">Plans built for</span><br />
-            <span className="gradient-text">landscaping professionals</span>
+            <span className="gradient-text">Measure the returns</span><br />
+            <span className="gradient-text">of smarter takeoffs</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="pricing-subtitle">
-            From solo landscapers to enterprise crews, we've got you covered.
+            Calculate how much time and money Bobyard can save your landscaping business
           </p>
+        </div>
 
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-center space-x-4 mt-8" data-testid="billing-toggle">
-            <span className={`text-${isYearly ? 'muted-foreground' : 'foreground'}`}>Monthly</span>
-            <button 
-              className="relative w-12 h-6 bg-primary rounded-full"
-              onClick={toggleBilling}
-              data-testid="toggle-button"
-            >
-              <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 ${
-                isYearly ? 'translate-x-6' : 'translate-x-0'
-              }`} />
-            </button>
-            <span className={`text-${isYearly ? 'foreground' : 'muted-foreground'}`}>Yearly</span>
-            <span className="bg-accent/20 text-accent px-2 py-1 rounded text-sm font-medium">20% OFF</span>
+        {/* Calculator */}
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+          {/* Input Section */}
+          <div className={`transition-all duration-700 delay-100 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className="feature-card p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6" data-testid="calculator-inputs-title">Tell us about your current process</h3>
+              
+              <div className="space-y-6">
+                {/* Hours per takeoff */}
+                <div>
+                  <label className="block text-sm font-medium mb-2" data-testid="hours-label">
+                    Hours per takeoff (current process)
+                  </label>
+                  <div className="flex items-center space-x-4">
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      step="0.5"
+                      value={inputs.hoursPerTakeoff}
+                      onChange={(e) => updateInput('hoursPerTakeoff', parseFloat(e.target.value))}
+                      className="flex-1"
+                      data-testid="hours-slider"
+                    />
+                    <span className="w-16 text-right font-semibold" data-testid="hours-value">
+                      {inputs.hoursPerTakeoff}h
+                    </span>
+                  </div>
+                </div>
+
+                {/* Hourly rate */}
+                <div>
+                  <label className="block text-sm font-medium mb-2" data-testid="rate-label">
+                    Your hourly rate
+                  </label>
+                  <div className="flex items-center space-x-4">
+                    <input
+                      type="range"
+                      min="25"
+                      max="200"
+                      step="5"
+                      value={inputs.hourlyRate}
+                      onChange={(e) => updateInput('hourlyRate', parseInt(e.target.value))}
+                      className="flex-1"
+                      data-testid="rate-slider"
+                    />
+                    <span className="w-16 text-right font-semibold" data-testid="rate-value">
+                      ${inputs.hourlyRate}/h
+                    </span>
+                  </div>
+                </div>
+
+                {/* Takeoffs per month */}
+                <div>
+                  <label className="block text-sm font-medium mb-2" data-testid="takeoffs-label">
+                    Takeoffs per month
+                  </label>
+                  <div className="flex items-center space-x-4">
+                    <input
+                      type="range"
+                      min="5"
+                      max="100"
+                      step="5"
+                      value={inputs.takeoffsPerMonth}
+                      onChange={(e) => updateInput('takeoffsPerMonth', parseInt(e.target.value))}
+                      className="flex-1"
+                      data-testid="takeoffs-slider"
+                    />
+                    <span className="w-16 text-right font-semibold" data-testid="takeoffs-value">
+                      {inputs.takeoffsPerMonth}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Results Section */}
+          <div className={`transition-all duration-700 delay-200 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className="feature-card p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6" data-testid="calculator-results-title">Your potential savings with Bobyard</h3>
+              <p className="text-sm text-muted-foreground mb-6">Based on 85% time reduction per takeoff</p>
+              
+              <div className="space-y-6">
+                {/* Monthly savings */}
+                <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
+                  <div className="text-3xl font-bold text-accent mb-1" data-testid="monthly-savings">
+                    ${monthlySavings.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-muted-foreground">Monthly savings</div>
+                </div>
+
+                {/* Yearly savings */}
+                <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
+                  <div className="text-3xl font-bold text-green-600 mb-1" data-testid="yearly-savings">
+                    ${yearlySavings.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-muted-foreground">Yearly savings</div>
+                </div>
+
+                {/* Time saved */}
+                <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
+                  <div className="text-3xl font-bold text-blue-600 mb-1" data-testid="time-saved">
+                    {timeSavedPerMonth.toFixed(0)} hours
+                  </div>
+                  <div className="text-sm text-muted-foreground">Time saved per month</div>
+                </div>
+
+                {/* ROI Percentage */}
+                <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
+                  <div className="text-3xl font-bold text-purple-600 mb-1" data-testid="roi-percentage">
+                    {((monthlySavings / (monthlySavings + bobyardMonthlyCost)) * 100).toFixed(0)}%
+                  </div>
+                  <div className="text-sm text-muted-foreground">Monthly ROI</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {pricingPlans.map((plan, index) => (
-            <div 
-              key={plan.name}
-              className={`pricing-card ${plan.featured ? 'featured' : ''} p-8 rounded-2xl transition-all duration-700 delay-${(index + 1) * 100} ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              data-testid={`pricing-card-${plan.name.toLowerCase()}`}
-            >
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2" data-testid={`plan-name-${plan.name.toLowerCase()}`}>{plan.name}</h3>
-                <div className="mb-4">
-                  <span className="text-4xl font-bold" data-testid={`plan-price-${plan.name.toLowerCase()}`}>
-                    {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                  </span>
-                </div>
-                <p className="text-muted-foreground" data-testid={`plan-subtitle-${plan.name.toLowerCase()}`}>{plan.subtitle}</p>
-              </div>
-
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center space-x-3" data-testid={`feature-${plan.name.toLowerCase()}-${featureIndex}`}>
-                    <img src={plan.checkmarkIcon} alt="Check" className="w-5 h-5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Button 
-                className="btn-primary w-full py-3 rounded-lg font-semibold mb-4" 
-                data-testid={`button-trial-${plan.name.toLowerCase()}`}
-              >
-                Start Free Trial
-              </Button>
-
-              <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground" data-testid={`security-note-${plan.name.toLowerCase()}`}>
-                <img 
-                  src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b5439b9d546e2e95528339_icon-25.svg" 
-                  alt="Security" 
-                  className="w-4 h-4"
-                />
-                <span>No credit card required</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Demo CTA */}
-        <div className={`text-center mt-16 transition-all duration-700 delay-400 ${
+        {/* CTA Section */}
+        <div className={`text-center mt-16 transition-all duration-700 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`} data-testid="demo-cta">
-          <h3 className="text-2xl font-bold mb-4" data-testid="demo-title">Want to see it in action?</h3>
-          <p className="text-muted-foreground mb-8" data-testid="demo-description">
-            See how Bobyard can streamline your takeoff process with a personalized demo using your own landscape plans.
-          </p>
-          <Button className="btn-primary px-8 py-3 rounded-lg font-semibold" data-testid="button-book-demo">
-            Book a free demo call
-          </Button>
+        }`} data-testid="calculator-cta">
+          <div className="feature-card p-8 rounded-2xl max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-4" data-testid="cta-title">Ready to start saving?</h3>
+            <p className="text-xl text-muted-foreground mb-8" data-testid="cta-description">
+              See these savings in action with a personalized demo using your own landscape plans
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button className="btn-primary px-8 py-3 rounded-lg font-semibold" data-testid="button-book-demo">
+                Book a Demo
+              </Button>
+              <Button 
+                variant="outline" 
+                className="px-8 py-3 rounded-lg font-semibold border-primary text-primary hover:bg-primary hover:text-white" 
+                data-testid="button-sample-run"
+              >
+                Try Sample Run
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

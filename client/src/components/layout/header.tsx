@@ -1,41 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <>
-      {/* Hiring Announcement Bar */}
-      <div className="bg-primary/20 border-b border-primary/30 py-2 text-center text-sm" data-testid="announcement-bar">
-        <span className="text-foreground">
-          We are hiring across many roles! 
-        </span>
-        <a 
-          href="#" 
-          className="text-primary hover:text-primary/80 transition-colors ml-2 font-medium"
-          data-testid="link-careers"
-        >
-          See postings
-        </a>
-      </div>
-      
-      <header className={`fixed top-8 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-md' : 'bg-transparent'
-      } border-b border-border/40`}>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border/40">
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}

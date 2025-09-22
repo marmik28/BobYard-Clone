@@ -4,6 +4,7 @@ import Hero from "@/components/sections/hero";
 import BrandCarousel from "@/components/sections/brand-carousel";
 import FeaturesShowcase from "@/components/sections/features-showcase";
 import HowItWorks from "@/components/sections/how-it-works";
+import CounterSection from "@/components/sections/counter-section";
 import PopularFeatures from "@/components/sections/popular-features";
 import Overview from "@/components/sections/overview";
 import Pricing from "@/components/sections/pricing";
@@ -18,6 +19,7 @@ export default function Home() {
         <BrandCarousel />
         <FeaturesShowcase />
         <HowItWorks />
+        <CounterSection />
         <PopularFeatures />
         <Overview />
         <Pricing />

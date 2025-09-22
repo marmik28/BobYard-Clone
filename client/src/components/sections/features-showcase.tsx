@@ -30,211 +30,163 @@ export default function FeaturesShowcase() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <p className="text-primary text-lg font-medium mb-4" data-testid="features-badge">Landscaping Takeoffs</p>
+          <p className="text-primary text-lg font-medium mb-4" data-testid="features-badge">Customer Success Stories</p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="features-title">
-            <span className="gradient-text">AI-powered takeoff tools</span><br />
-            <span className="gradient-text">built for landscaping pros</span>
+            <span className="gradient-text">See how leading landscapers</span><br />
+            <span className="gradient-text">transform their workflow</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="features-subtitle">
-            Streamline your estimating process with intelligent measurement and quantity tools
+            Real landscaping professionals share their experience with Bobyard's takeoff tools
           </p>
         </div>
 
-        {/* Features Grid */}
+        {/* Testimonials Grid */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {/* AI Counting */}
+          {/* Chopper Landscaping */}
           <div className={`feature-card p-8 rounded-2xl card-hover transition-all duration-700 delay-100 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`} data-testid="feature-ai-counting">
+          }`} data-testid="testimonial-chopper">
             <div className="flex items-start space-x-4 mb-6">
               <img 
-                src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ed5_icon-3.svg" 
-                alt="AI Counting Icon" 
-                className="w-12 h-12"
+                src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/chopper-logo.png" 
+                alt="Chopper Landscaping Logo" 
+                className="w-12 h-12 rounded-lg"
               />
               <div>
-                <h3 className="text-2xl font-bold mb-2" data-testid="ai-counting-title">AI Object Counting</h3>
-                <p className="text-muted-foreground" data-testid="ai-counting-description">
-                  Let AI automatically count plants, fixtures, and landscape elements from your plans.
+                <h3 className="text-2xl font-bold mb-2" data-testid="chopper-title">Chopper Landscaping</h3>
+                <p className="text-muted-foreground" data-testid="chopper-description">
+                  "Bobyard cut our takeoff time from 3 hours to 30 minutes. The accuracy is incredible."
                 </p>
               </div>
             </div>
-            {/* AI Analysis mockup */}
-            <div className="bg-card border border-border rounded-xl p-4 space-y-4" data-testid="ai-analysis-mockup">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold">AI Analysis Results</h4>
-                <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">Complete</span>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-muted rounded-lg p-3">
-                  <h5 className="font-medium text-sm mb-1">Trees</h5>
-                  <p className="text-2xl font-bold text-primary">47</p>
-                </div>
-                <div className="bg-muted rounded-lg p-3">
-                  <h5 className="font-medium text-sm mb-1">Shrubs</h5>
-                  <p className="text-2xl font-bold text-primary">123</p>
+            {/* Video mockup */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden" data-testid="chopper-video">
+              <div className="aspect-video bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Watch Chopper's Success Story</p>
                 </div>
               </div>
-              <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
-                <p className="text-sm font-medium text-green-400">Analysis Complete</p>
-                <p className="text-xs text-green-300/80 mt-1">Ready for export to estimate</p>
+              <div className="p-4">
+                <p className="text-sm text-muted-foreground">
+                  See how Chopper Landscaping transformed their estimating process with Bobyard's AI takeoff tools.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Measurement Tools */}
+          {/* K & D Landscaping */}
           <div className={`feature-card p-8 rounded-2xl card-hover transition-all duration-700 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`} data-testid="feature-measurement">
+          }`} data-testid="testimonial-kd">
             <div className="flex items-start space-x-4 mb-6">
               <img 
-                src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b53962860902af726dea43_icon-21.svg" 
-                alt="Measurement Icon" 
-                className="w-12 h-12"
+                src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/kd-logo.png" 
+                alt="K & D Landscaping Logo" 
+                className="w-12 h-12 rounded-lg"
               />
               <div>
-                <h3 className="text-2xl font-bold mb-2" data-testid="measurement-title">Smart Measurement Tools</h3>
-                <p className="text-muted-foreground" data-testid="measurement-description">
-                  Accurate area and linear measurements with snap-to-grid precision.
+                <h3 className="text-2xl font-bold mb-2" data-testid="kd-title">K & D Landscaping</h3>
+                <p className="text-muted-foreground" data-testid="kd-description">
+                  "The measurement tools are game-changing. We win more bids with faster turnaround."
                 </p>
               </div>
             </div>
-            {/* Measurement mockup */}
-            <div className="bg-card border border-border rounded-xl p-4 space-y-4" data-testid="measurement-mockup">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold">Measurement Tools</h4>
-                <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">Active</span>
+            {/* Video mockup */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden" data-testid="kd-video">
+              <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Watch K & D's Journey</p>
+                </div>
               </div>
-              <div className="space-y-3">
-                <div className="bg-muted rounded-lg p-3">
-                  <div className="flex justify-between items-center mb-2">
-                    <h5 className="font-medium text-sm">Lawn Area</h5>
-                    <span className="text-primary font-bold">2,847 sq ft</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <h5 className="font-medium text-sm">Planting Beds</h5>
-                    <span className="text-primary font-bold">456 sq ft</span>
-                  </div>
-                </div>
-                <div className="flex space-x-2">
-                  <button className="flex-1 bg-primary/20 text-primary rounded-lg px-3 py-2 text-sm">
-                    Area Tool
-                  </button>
-                  <button className="flex-1 bg-muted rounded-lg px-3 py-2 text-sm">
-                    Linear Tool
-                  </button>
-                </div>
+              <div className="p-4">
+                <p className="text-sm text-muted-foreground">
+                  Learn how K & D Landscaping increased their bidding accuracy and efficiency.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Export & Estimating */}
+          {/* New Path Landscape */}
           <div className={`feature-card p-8 rounded-2xl card-hover transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`} data-testid="feature-export-estimating">
+          }`} data-testid="testimonial-newpath">
             <div className="flex items-start space-x-4 mb-6">
               <img 
-                src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b53a156d6e3cbbb6116c4e_icon-22.svg" 
-                alt="Export Icon" 
-                className="w-12 h-12"
+                src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/newpath-logo.png" 
+                alt="New Path Landscape Logo" 
+                className="w-12 h-12 rounded-lg"
               />
               <div>
-                <h3 className="text-2xl font-bold mb-2" data-testid="export-title">Export & Estimating</h3>
-                <p className="text-muted-foreground" data-testid="export-description">
-                  Export quantities directly to your estimating software for accurate bids.
+                <h3 className="text-2xl font-bold mb-2" data-testid="newpath-title">New Path Landscape</h3>
+                <p className="text-muted-foreground" data-testid="newpath-description">
+                  "AI counting is so accurate, we trust it more than manual counts. Saved us hours."
                 </p>
               </div>
             </div>
-            {/* Export mockup */}
-            <div className="bg-card border border-border rounded-xl p-4" data-testid="export-mockup">
-              <div className="flex items-center space-x-2 mb-4">
-                <img 
-                  src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b6f2a6f7a435e955dc9cfe_icon-61.svg" 
-                  alt="Export Icon" 
-                  className="w-6 h-6"
-                />
-                <h4 className="font-semibold">Ready to Export</h4>
+            {/* Video mockup */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden" data-testid="newpath-video">
+              <div className="aspect-video bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Watch New Path's Experience</p>
+                </div>
               </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center p-2 bg-muted rounded-lg">
-                  <span className="text-sm">Trees (3" caliper)</span>
-                  <span className="text-sm font-medium">47 units</span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-muted rounded-lg">
-                  <span className="text-sm">Shrubs (5 gal)</span>
-                  <span className="text-sm font-medium">123 units</span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-muted rounded-lg">
-                  <span className="text-sm">Sod Installation</span>
-                  <span className="text-sm font-medium">2,847 sq ft</span>
-                </div>
+              <div className="p-4">
+                <p className="text-sm text-muted-foreground">
+                  Discover how New Path Landscape leverages AI for precise plant counting and estimation.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Software Integrations */}
+          {/* Smith & Enright */}
           <div className={`feature-card p-8 rounded-2xl card-hover transition-all duration-700 delay-400 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`} data-testid="feature-integrations">
+          }`} data-testid="testimonial-smith">
             <div className="flex items-start space-x-4 mb-6">
               <img 
-                src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b53a152cf82cee90291eea_icon-23.svg" 
-                alt="Integrations Icon" 
-                className="w-12 h-12"
+                src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/smith-enright-logo.png" 
+                alt="Smith & Enright Logo" 
+                className="w-12 h-12 rounded-lg"
               />
               <div>
-                <h3 className="text-2xl font-bold mb-2" data-testid="integrations-title">Software Integrations</h3>
-                <p className="text-muted-foreground" data-testid="integrations-description">
-                  Works with your existing estimating and design software
+                <h3 className="text-2xl font-bold mb-2" data-testid="smith-title">Smith & Enright</h3>
+                <p className="text-muted-foreground" data-testid="smith-description">
+                  "Export feature seamlessly integrates with our software. No more manual data entry."
                 </p>
               </div>
             </div>
-            {/* Integrations grid */}
-            <div className="grid grid-cols-3 gap-3" data-testid="integrations-grid">
-              {[
-                "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b92904516ea438fba6e510_icon-13.svg",
-                "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b92904eafb4ff1baf5d5e7_icon-15.svg",
-                "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b929046deaf0cc90c5aaa2_icon-18.svg",
-                "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b92904a40047ddced0c387_icon-20.svg",
-                "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b929048284b3ab05c2d0fb_icon-17.svg",
-                "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b92904418aeeb65bf48819_icon-16.svg",
-              ].map((icon, index) => (
-                <div key={index} className="bg-card border border-border rounded-lg p-3 flex items-center justify-center">
-                  <img src={icon} alt={`Integration ${index + 1}`} className="w-8 h-8" />
+            {/* Video mockup */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden" data-testid="smith-video">
+              <div className="aspect-video bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Watch Smith & Enright's Story</p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Team Collaboration */}
-          <div className={`feature-card p-8 rounded-2xl card-hover lg:col-span-2 transition-all duration-700 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`} data-testid="feature-collaboration">
-            <div className="flex items-start space-x-4 mb-6">
-              <img 
-                src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b53a1597a47e5933ebf3a3_icon-24.svg" 
-                alt="Collaboration Icon" 
-                className="w-12 h-12"
-              />
-              <div>
-                <h3 className="text-2xl font-bold mb-2" data-testid="collaboration-title">Team collaboration strategies</h3>
-                <p className="text-muted-foreground" data-testid="collaboration-description">
-                  Organize regular check-ins with your team.
+              </div>
+              <div className="p-4">
+                <p className="text-sm text-muted-foreground">
+                  See how Smith & Enright streamlined their workflow with seamless software integration.
                 </p>
               </div>
-            </div>
-            {/* Collaboration mockup */}
-            <div className="grid md:grid-cols-3 gap-4" data-testid="collaboration-grid">
-              {[
-                { title: "Integrated Outlook", icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b855185e91607d83002a37_icon-12.svg" },
-                { title: "Smart Collaboration", icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b855185e91607d83002a37_icon-12.svg" },
-                { title: "Shared Imagination", icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b855185e91607d83002a37_icon-12.svg" },
-              ].map((item, index) => (
-                <div key={index} className="bg-card border border-border rounded-xl p-4 text-center">
-                  <img src={item.icon} alt={item.title} className="w-8 h-8 mx-auto mb-3" />
-                  <h4 className="font-semibold text-sm mb-1">{item.title}</h4>
-                </div>
-              ))}
             </div>
           </div>
         </div>
