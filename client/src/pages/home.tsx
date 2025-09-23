@@ -8,6 +8,7 @@ import CounterSection from "@/components/sections/counter-section";
 import Overview from "@/components/sections/overview";
 import Pricing from "@/components/sections/pricing";
 import Testimonials from "@/components/sections/testimonials";
+import Investors from "@/components/sections/investors";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Overview />
         <Pricing />
         <Testimonials />
+        <Investors />
       </main>
       <Footer />
     </div>
