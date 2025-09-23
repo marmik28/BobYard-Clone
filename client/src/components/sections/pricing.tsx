@@ -227,61 +227,64 @@ export default function Pricing() {
               <h3 className="text-2xl font-bold mb-6" data-testid="calculator-results-title">Your potential returns with Bobyard</h3>
               <p className="text-sm text-muted-foreground mb-6">Based on 85% time reduction per takeoff</p>
               
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="space-y-8">
                 {/* Savings Section */}
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-accent" data-testid="savings-title">Savings</h4>
-                  
-                  <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-accent mb-1" data-testid="time-savings">
-                      {savedHours.toLocaleString()} hrs
+                <div>
+                  <h4 className="text-lg font-semibold text-accent mb-4" data-testid="savings-title">Savings</h4>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-accent mb-1" data-testid="time-savings">
+                        {savedHours.toLocaleString()} hrs
+                      </div>
+                      <div className="text-sm text-muted-foreground">Time Savings</div>
                     </div>
-                    <div className="text-sm text-muted-foreground">Time Savings</div>
-                  </div>
 
-                  <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-accent mb-1" data-testid="cost-savings">
-                      ${costSavings.toLocaleString()}
+                    <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-accent mb-1" data-testid="cost-savings">
+                        ${Math.round(costSavings).toLocaleString()}
+                      </div>
+                      <div className="text-sm text-muted-foreground">Cost Savings</div>
                     </div>
-                    <div className="text-sm text-muted-foreground">Cost Savings</div>
                   </div>
                 </div>
 
                 {/* Revenue Section */}
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-green-600" data-testid="revenue-title">Revenue</h4>
-                  
-                  <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-green-600 mb-1" data-testid="revenue-impact">
-                      {revenueImpact.toFixed(0)}%
+                <div>
+                  <h4 className="text-lg font-semibold text-green-600 mb-4" data-testid="revenue-title">Revenue</h4>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-green-600 mb-1" data-testid="revenue-impact">
+                        {Math.round(revenueImpact)}%
+                      </div>
+                      <div className="text-sm text-muted-foreground">Revenue Impact</div>
                     </div>
-                    <div className="text-sm text-muted-foreground">Revenue Impact</div>
-                  </div>
 
-                  <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-green-600 mb-1" data-testid="revenue-lift">
-                      ${revenueLift.toLocaleString()}
+                    <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-green-600 mb-1" data-testid="revenue-lift">
+                        ${Math.round(revenueLift).toLocaleString()}
+                      </div>
+                      <div className="text-sm text-muted-foreground">Revenue Lift</div>
                     </div>
-                    <div className="text-sm text-muted-foreground">Revenue Lift</div>
                   </div>
                 </div>
 
                 {/* Business Impact Section */}
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-blue-600" data-testid="impact-title">Business Impact</h4>
-                  
-                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-blue-600 mb-1" data-testid="total-impact">
-                      ${totalFinancialImpact.toLocaleString()}
+                <div>
+                  <h4 className="text-lg font-semibold text-blue-600 mb-4" data-testid="impact-title">Business Impact</h4>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-blue-600 mb-1" data-testid="total-impact">
+                        ${Math.round(totalFinancialImpact).toLocaleString()}
+                      </div>
+                      <div className="text-sm text-muted-foreground">Total Financial Impact</div>
                     </div>
-                    <div className="text-sm text-muted-foreground">Total Financial Impact</div>
-                  </div>
 
-                  <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-purple-600 mb-1" data-testid="roi-percentage">
-                      {roi.toLocaleString()}%
+                    <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-purple-600 mb-1" data-testid="roi-percentage">
+                        {Math.round(roi).toLocaleString()}%
+                      </div>
+                      <div className="text-sm text-muted-foreground">ROI</div>
                     </div>
-                    <div className="text-sm text-muted-foreground">ROI</div>
                   </div>
                 </div>
               </div>
