@@ -9,8 +9,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border/40">
-      <div className="container mx-auto px-4 lg:px-6">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border/40">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2" data-testid="logo">
