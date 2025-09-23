@@ -5,7 +5,6 @@ import BrandCarousel from "@/components/sections/brand-carousel";
 import FeaturesShowcase from "@/components/sections/features-showcase";
 import HowItWorks from "@/components/sections/how-it-works";
 import CounterSection from "@/components/sections/counter-section";
-import PopularFeatures from "@/components/sections/popular-features";
 import Overview from "@/components/sections/overview";
 import Pricing from "@/components/sections/pricing";
 import Testimonials from "@/components/sections/testimonials";
@@ -20,7 +19,6 @@ export default function Home() {
         <FeaturesShowcase />
         <HowItWorks />
         <CounterSection />
-        <PopularFeatures />
         <Overview />
         <Pricing />
         <Testimonials />
