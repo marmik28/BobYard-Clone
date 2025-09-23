@@ -4,9 +4,12 @@ import { Button } from "@/components/ui/button";
 export default function Pricing() {
   const [isVisible, setIsVisible] = useState(false);
   const [inputs, setInputs] = useState({
-    hoursPerTakeoff: 3,
-    hourlyRate: 75,
-    takeoffsPerMonth: 20
+    numberOfEstimators: 5,
+    estimatorSalary: 80000,
+    weeklyTakeoffsPerEstimator: 5,
+    timePerTakeoff: 8,
+    winRate: 35,
+    averageJobSize: 100000
   });
 
   useEffect(() => {
@@ -30,17 +33,25 @@ export default function Pricing() {
   };
 
   // Calculations
-  const currentMonthlyCost = inputs.hoursPerTakeoff * inputs.hourlyRate * inputs.takeoffsPerMonth;
-  const currentYearlyCost = currentMonthlyCost * 12;
+  const totalEstimatorCost = inputs.numberOfEstimators * inputs.estimatorSalary;
+  const hourlyEstimatorRate = inputs.estimatorSalary / (52 * 40); // Weekly hours
+  const annualTakeoffs = inputs.numberOfEstimators * inputs.weeklyTakeoffsPerEstimator * 52;
+  const currentAnnualHours = annualTakeoffs * inputs.timePerTakeoff;
   
   // With Bobyard (85% time reduction)
-  const bobyard_hours_per_takeoff = inputs.hoursPerTakeoff * 0.15; // 85% reduction
-  const bobyardMonthlyCost = bobyard_hours_per_takeoff * inputs.hourlyRate * inputs.takeoffsPerMonth;
-  const bobyardYearlyCost = bobyardMonthlyCost * 12;
+  const timeReduction = 0.85;
+  const savedHours = currentAnnualHours * timeReduction;
+  const costSavings = savedHours * hourlyEstimatorRate;
   
-  const monthlySavings = currentMonthlyCost - bobyardMonthlyCost;
-  const yearlySavings = currentYearlyCost - bobyardYearlyCost;
-  const timeSavedPerMonth = (inputs.hoursPerTakeoff - bobyard_hours_per_takeoff) * inputs.takeoffsPerMonth;
+  // Revenue calculations
+  const currentWonJobs = annualTakeoffs * (inputs.winRate / 100);
+  const additionalTakeoffs = savedHours / inputs.timePerTakeoff;
+  const additionalWonJobs = additionalTakeoffs * (inputs.winRate / 100);
+  const revenueLift = additionalWonJobs * inputs.averageJobSize;
+  const revenueImpact = (revenueLift / (currentWonJobs * inputs.averageJobSize)) * 100;
+  
+  const totalFinancialImpact = costSavings + revenueLift;
+  const roi = (totalFinancialImpact / totalEstimatorCost) * 100;
 
   return (
     <section 
@@ -73,68 +84,134 @@ export default function Pricing() {
               <h3 className="text-2xl font-bold mb-6" data-testid="calculator-inputs-title">Tell us about your current process</h3>
               
               <div className="space-y-6">
-                {/* Hours per takeoff */}
+                {/* Number of Estimators */}
                 <div>
-                  <label className="block text-sm font-medium mb-2" data-testid="hours-label">
-                    Hours per takeoff (current process)
+                  <label className="block text-sm font-medium mb-2" data-testid="estimators-label">
+                    Number of Estimators
                   </label>
                   <div className="flex items-center space-x-4">
                     <input
                       type="range"
                       min="1"
-                      max="10"
-                      step="0.5"
-                      value={inputs.hoursPerTakeoff}
-                      onChange={(e) => updateInput('hoursPerTakeoff', parseFloat(e.target.value))}
+                      max="20"
+                      step="1"
+                      value={inputs.numberOfEstimators}
+                      onChange={(e) => updateInput('numberOfEstimators', parseInt(e.target.value))}
                       className="flex-1"
-                      data-testid="hours-slider"
+                      data-testid="estimators-slider"
                     />
-                    <span className="w-16 text-right font-semibold" data-testid="hours-value">
-                      {inputs.hoursPerTakeoff}h
+                    <span className="w-16 text-right font-semibold" data-testid="estimators-value">
+                      {inputs.numberOfEstimators}
                     </span>
                   </div>
                 </div>
 
-                {/* Hourly rate */}
+                {/* Estimator Salary */}
                 <div>
-                  <label className="block text-sm font-medium mb-2" data-testid="rate-label">
-                    Your hourly rate
+                  <label className="block text-sm font-medium mb-2" data-testid="salary-label">
+                    Estimator Salary
                   </label>
                   <div className="flex items-center space-x-4">
                     <input
                       type="range"
-                      min="25"
-                      max="200"
-                      step="5"
-                      value={inputs.hourlyRate}
-                      onChange={(e) => updateInput('hourlyRate', parseInt(e.target.value))}
+                      min="40000"
+                      max="150000"
+                      step="5000"
+                      value={inputs.estimatorSalary}
+                      onChange={(e) => updateInput('estimatorSalary', parseInt(e.target.value))}
                       className="flex-1"
-                      data-testid="rate-slider"
+                      data-testid="salary-slider"
                     />
-                    <span className="w-16 text-right font-semibold" data-testid="rate-value">
-                      ${inputs.hourlyRate}/h
+                    <span className="w-24 text-right font-semibold" data-testid="salary-value">
+                      ${inputs.estimatorSalary.toLocaleString()}
                     </span>
                   </div>
                 </div>
 
-                {/* Takeoffs per month */}
+                {/* Weekly Takeoffs per Estimator */}
                 <div>
-                  <label className="block text-sm font-medium mb-2" data-testid="takeoffs-label">
-                    Takeoffs per month
+                  <label className="block text-sm font-medium mb-2" data-testid="weekly-takeoffs-label">
+                    Weekly Takeoffs per Estimator
                   </label>
                   <div className="flex items-center space-x-4">
                     <input
                       type="range"
-                      min="5"
-                      max="100"
-                      step="5"
-                      value={inputs.takeoffsPerMonth}
-                      onChange={(e) => updateInput('takeoffsPerMonth', parseInt(e.target.value))}
+                      min="1"
+                      max="20"
+                      step="1"
+                      value={inputs.weeklyTakeoffsPerEstimator}
+                      onChange={(e) => updateInput('weeklyTakeoffsPerEstimator', parseInt(e.target.value))}
                       className="flex-1"
-                      data-testid="takeoffs-slider"
+                      data-testid="weekly-takeoffs-slider"
                     />
-                    <span className="w-16 text-right font-semibold" data-testid="takeoffs-value">
-                      {inputs.takeoffsPerMonth}
+                    <span className="w-16 text-right font-semibold" data-testid="weekly-takeoffs-value">
+                      {inputs.weeklyTakeoffsPerEstimator}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Time per Takeoff */}
+                <div>
+                  <label className="block text-sm font-medium mb-2" data-testid="time-takeoff-label">
+                    Time per Takeoff
+                  </label>
+                  <div className="flex items-center space-x-4">
+                    <input
+                      type="range"
+                      min="1"
+                      max="20"
+                      step="1"
+                      value={inputs.timePerTakeoff}
+                      onChange={(e) => updateInput('timePerTakeoff', parseInt(e.target.value))}
+                      className="flex-1"
+                      data-testid="time-takeoff-slider"
+                    />
+                    <span className="w-16 text-right font-semibold" data-testid="time-takeoff-value">
+                      {inputs.timePerTakeoff} hrs
+                    </span>
+                  </div>
+                </div>
+
+                {/* Win Rate */}
+                <div>
+                  <label className="block text-sm font-medium mb-2" data-testid="win-rate-label">
+                    Win Rate
+                  </label>
+                  <div className="flex items-center space-x-4">
+                    <input
+                      type="range"
+                      min="10"
+                      max="80"
+                      step="5"
+                      value={inputs.winRate}
+                      onChange={(e) => updateInput('winRate', parseInt(e.target.value))}
+                      className="flex-1"
+                      data-testid="win-rate-slider"
+                    />
+                    <span className="w-16 text-right font-semibold" data-testid="win-rate-value">
+                      {inputs.winRate}%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Average Job Size */}
+                <div>
+                  <label className="block text-sm font-medium mb-2" data-testid="job-size-label">
+                    Average Job Size
+                  </label>
+                  <div className="flex items-center space-x-4">
+                    <input
+                      type="range"
+                      min="10000"
+                      max="500000"
+                      step="10000"
+                      value={inputs.averageJobSize}
+                      onChange={(e) => updateInput('averageJobSize', parseInt(e.target.value))}
+                      className="flex-1"
+                      data-testid="job-size-slider"
+                    />
+                    <span className="w-24 text-right font-semibold" data-testid="job-size-value">
+                      ${inputs.averageJobSize.toLocaleString()}
                     </span>
                   </div>
                 </div>
@@ -147,40 +224,65 @@ export default function Pricing() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="feature-card p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6" data-testid="calculator-results-title">Your potential savings with Bobyard</h3>
+              <h3 className="text-2xl font-bold mb-6" data-testid="calculator-results-title">Your potential returns with Bobyard</h3>
               <p className="text-sm text-muted-foreground mb-6">Based on 85% time reduction per takeoff</p>
               
-              <div className="space-y-6">
-                {/* Monthly savings */}
-                <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-accent mb-1" data-testid="monthly-savings">
-                    ${monthlySavings.toLocaleString()}
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* Savings Section */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-accent" data-testid="savings-title">Savings</h4>
+                  
+                  <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-accent mb-1" data-testid="time-savings">
+                      {savedHours.toLocaleString()} hrs
+                    </div>
+                    <div className="text-sm text-muted-foreground">Time Savings</div>
                   </div>
-                  <div className="text-sm text-muted-foreground">Monthly savings</div>
+
+                  <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-accent mb-1" data-testid="cost-savings">
+                      ${costSavings.toLocaleString()}
+                    </div>
+                    <div className="text-sm text-muted-foreground">Cost Savings</div>
+                  </div>
                 </div>
 
-                {/* Yearly savings */}
-                <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-green-600 mb-1" data-testid="yearly-savings">
-                    ${yearlySavings.toLocaleString()}
+                {/* Revenue Section */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-green-600" data-testid="revenue-title">Revenue</h4>
+                  
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-green-600 mb-1" data-testid="revenue-impact">
+                      {revenueImpact.toFixed(0)}%
+                    </div>
+                    <div className="text-sm text-muted-foreground">Revenue Impact</div>
                   </div>
-                  <div className="text-sm text-muted-foreground">Yearly savings</div>
+
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-green-600 mb-1" data-testid="revenue-lift">
+                      ${revenueLift.toLocaleString()}
+                    </div>
+                    <div className="text-sm text-muted-foreground">Revenue Lift</div>
+                  </div>
                 </div>
 
-                {/* Time saved */}
-                <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-blue-600 mb-1" data-testid="time-saved">
-                    {timeSavedPerMonth.toFixed(0)} hours
+                {/* Business Impact Section */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-blue-600" data-testid="impact-title">Business Impact</h4>
+                  
+                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-blue-600 mb-1" data-testid="total-impact">
+                      ${totalFinancialImpact.toLocaleString()}
+                    </div>
+                    <div className="text-sm text-muted-foreground">Total Financial Impact</div>
                   </div>
-                  <div className="text-sm text-muted-foreground">Time saved per month</div>
-                </div>
 
-                {/* ROI Percentage */}
-                <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
-                  <div className="text-3xl font-bold text-purple-600 mb-1" data-testid="roi-percentage">
-                    {((monthlySavings / (monthlySavings + bobyardMonthlyCost)) * 100).toFixed(0)}%
+                  <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
+                    <div className="text-2xl font-bold text-purple-600 mb-1" data-testid="roi-percentage">
+                      {roi.toLocaleString()}%
+                    </div>
+                    <div className="text-sm text-muted-foreground">ROI</div>
                   </div>
-                  <div className="text-sm text-muted-foreground">Monthly ROI</div>
                 </div>
               </div>
             </div>
