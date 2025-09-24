@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import aiTakeoffsImage from "@assets/image_1758725763808.png";
-import estimateConfidenceImage from "@assets/image_1758726932492.png";
+import estimateConfidenceImage from "@assets/image_1758727065378.png";
 
 export default function Overview() {
   const [isVisible, setIsVisible] = useState(false);
@@ -144,12 +144,14 @@ export default function Overview() {
               </div>
             </div>
             <div className="lg:order-1 flex items-center">
-              <img 
-                src={estimateConfidenceImage} 
-                alt="Estimate with Confidence" 
-                className="w-full h-full object-cover rounded-2xl"
-                data-testid="overview-2-image"
-              />
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 w-full h-full flex items-center justify-center">
+                <img 
+                  src={estimateConfidenceImage} 
+                  alt="Estimate with Confidence" 
+                  className="w-full h-full object-contain"
+                  data-testid="overview-2-image"
+                />
+              </div>
             </div>
           </div>
         </div>
