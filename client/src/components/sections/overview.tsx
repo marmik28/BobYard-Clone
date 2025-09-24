@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import aiTakeoffsImage from "@assets/image_1758725763808.png";
 
 export default function Overview() {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,15 +47,50 @@ export default function Overview() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`} data-testid="overview-item-1">
             <div>
-              <h3 className="text-3xl font-bold mb-6" data-testid="overview-1-title">Your strategy for boosting productivity</h3>
-              <p className="text-muted-foreground mb-8" data-testid="overview-1-description">
-                Making plans for the getaway. He will be rendered gleaning if he does this. The not-about-concept is crucial.
-              </p>
+              <h3 className="text-3xl font-bold mb-6" data-testid="overview-1-title">Ridiculously fast AI takeoffs</h3>
+              
+              <div className="space-y-6" data-testid="overview-1-features">
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Auto Count</h4>
+                    <p className="text-muted-foreground">Automatically count planting, irrigation, and electrical symbols in seconds.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Measure Lengths</h4>
+                    <p className="text-muted-foreground">Automatically measure lengths of irrigation systems.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 2h2v4h4v2h-4v4h-2v-4H7v-2h4V5z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Measure Areas</h4>
+                    <p className="text-muted-foreground">Automatically measure pavers, concrete, and other materials.</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div>
               <img 
-                src="https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68b53c6fb392bbb3644f17d3_6ebd4002c8ca7c186cba8e29da0c530a_thumb-2.webp" 
-                alt="Productivity Strategy" 
+                src={aiTakeoffsImage} 
+                alt="AI Takeoffs Visualization" 
                 className="w-full rounded-2xl shadow-xl"
                 data-testid="overview-1-image"
               />
