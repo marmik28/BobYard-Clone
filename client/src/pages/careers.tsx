@@ -51,8 +51,8 @@ export default function Careers() {
             </div>
             
             <div className="text-center space-y-4" data-testid="value-team">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto">
-                <Users className="h-6 w-6 text-purple-600" />
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto">
+                <Users className="h-6 w-6 text-green-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">Small Team, Big Impact</h3>
               <p className="text-gray-600">Every team member has significant autonomy and direct impact on our success</p>

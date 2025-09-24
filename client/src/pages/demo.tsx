@@ -51,8 +51,8 @@ export default function Demo() {
             </div>
             
             <div className="text-center space-y-4" data-testid="benefit-quick">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto">
-                <Clock className="h-6 w-6 text-purple-600" />
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto">
+                <Clock className="h-6 w-6 text-green-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">30-Minute Session</h3>
               <p className="text-gray-600">Quick but comprehensive overview of Bobyard's capabilities and ROI</p>

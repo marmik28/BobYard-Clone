@@ -279,8 +279,8 @@ export default function Pricing() {
                       <div className="text-sm text-muted-foreground">Total Financial Impact</div>
                     </div>
 
-                    <div className="bg-purple-500/10 border border-purple-500/20 rounded-lg p-4">
-                      <div className="text-2xl font-bold text-purple-600 mb-1" data-testid="roi-percentage">
+                    <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-green-600 mb-1" data-testid="roi-percentage">
                         {Math.round(roi).toLocaleString()}%
                       </div>
                       <div className="text-sm text-muted-foreground">ROI</div>
