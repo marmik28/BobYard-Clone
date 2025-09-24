@@ -89,12 +89,14 @@ export default function Overview() {
               </div>
             </div>
             <div className="flex items-center">
-              <img 
-                src={aiTakeoffsImage} 
-                alt="AI Takeoffs Visualization" 
-                className="w-full h-full object-cover rounded-2xl"
-                data-testid="overview-1-image"
-              />
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 w-full h-full flex items-center justify-center">
+                <img 
+                  src={aiTakeoffsImage} 
+                  alt="AI Takeoffs Visualization" 
+                  className="w-full h-full object-contain"
+                  data-testid="overview-1-image"
+                />
+              </div>
             </div>
           </div>
 
