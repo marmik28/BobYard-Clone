@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import dashboardImage from "@assets/image_1758727483462.png";
 
 export default function HowItWorks() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,46 +19,28 @@ export default function HowItWorks() {
     return () => observer.disconnect();
   }, []);
 
-  const features = [
+  const steps = [
     {
-      icon: (
-        <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-        </svg>
-      ),
-      title: "Secure",
-      description: "Store and access your documents from anywhere.",
+      icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ecd_icon-4.svg",
+      title: "Upload Your Plans",
+      description: "Simply upload your landscape plans, blueprints, or satellite images to get started.",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/>
-          <path d="M14 2v6h6"/>
-          <path d="M16 13H8"/>
-          <path d="M16 17H8"/>
-          <path d="M10 9H8"/>
-        </svg>
-      ),
-      title: "Auto Naming",
-      description: "Automatically split and name your drawings.",
+      icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ece_icon-5.svg",
+      title: "AI Analyzes & Measures",
+      description: "Our AI automatically identifies plants, measures areas, and counts landscape elements with precision.",
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-          <path d="M13 10h-2v3"/>
-          <path d="M9 10h6"/>
-        </svg>
-      ),
-      title: "Q&A with AI",
-      description: "Ask a private model trained on your data about anything.",
+      icon: "https://cdn.prod.website-files.com/68a0b147a392c76e4c8c2aa5/68a0b424f8231c1a57863ecc_icon-6.svg",
+      title: "Export to Estimates",
+      description: "Export accurate quantities directly to your estimating software for faster, more competitive bids.",
     },
   ];
 
   return (
     <section 
       id="how-it-works"
-      className="py-20 bg-gradient-to-br from-slate-50 to-blue-50" 
+      className="py-20 aurora-glow" 
       data-testid="section-how-it-works"
     >
       <div className="container mx-auto px-4 lg:px-6">
@@ -67,53 +48,44 @@ export default function HowItWorks() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-900" data-testid="how-it-works-title">
-            Instant access to key data
+          <p className="text-primary text-lg font-medium mb-4" data-testid="how-it-works-badge">How It Works</p>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="how-it-works-title">
+            <span className="gradient-text">Simple 3-step process</span><br />
+            <span className="gradient-text">for accurate takeoffs</span>
           </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="how-it-works-subtitle">
+            From plan upload to accurate estimate in minutes, not hours
+          </p>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto items-center">
-          {/* Features Column */}
-          <div className="space-y-12">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className={`transition-all duration-700 delay-${(index + 1) * 100} ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-                }`}
-                data-testid={`feature-${index + 1}`}
-              >
-                <div className="flex items-start space-x-6">
-                  <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900" data-testid={`feature-title-${index + 1}`}>
-                      {feature.title}
-                    </h3>
-                    <p className="text-lg text-gray-600" data-testid={`feature-description-${index + 1}`}>
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
+        {/* Steps Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+          {steps.map((step, index) => (
+            <div 
+              key={index}
+              className={`text-center transition-all duration-700 delay-${(index + 1) * 100} ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              data-testid={`step-${index + 1}`}
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 border border-primary/20 rounded-2xl mb-6">
+                <img src={step.icon} alt="Step Icon" className="w-10 h-10" />
               </div>
-            ))}
-          </div>
-
-          {/* Dashboard Image */}
-          <div className={`transition-all duration-700 delay-400 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-          }`} data-testid="how-it-works-image">
-            <div className="relative">
-              <img 
-                src={dashboardImage} 
-                alt="Project Dashboard with AI Chat" 
-                className="w-full rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+              <h3 className="text-2xl font-bold mb-4" data-testid={`step-title-${index + 1}`}>{step.title}</h3>
+              <p className="text-muted-foreground" data-testid={`step-description-${index + 1}`}>{step.description}</p>
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* Featured Image */}
+        <div className={`text-center transition-all duration-700 delay-400 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`} data-testid="how-it-works-image">
+          <img 
+            src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/CountDemo-new-ezgif.com-speed.gif" 
+            alt="Bobyard Landscaping Takeoff Process" 
+            className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
+          />
         </div>
       </div>
     </section>
