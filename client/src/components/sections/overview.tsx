@@ -46,52 +46,52 @@ export default function Overview() {
           <div className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-700 delay-100 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`} data-testid="overview-item-1">
-            <div>
-              <h3 className="text-3xl font-bold mb-6" data-testid="overview-1-title">Ridiculously fast AI takeoffs</h3>
+            <div className="flex flex-col h-full">
+              <h3 className="text-4xl font-bold mb-8" data-testid="overview-1-title">Ridiculously fast AI takeoffs</h3>
               
-              <div className="space-y-6" data-testid="overview-1-features">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <div className="space-y-8 flex-1" data-testid="overview-1-features">
+                <div className="flex items-start space-x-6">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                    <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Auto Count</h4>
-                    <p className="text-muted-foreground">Automatically count planting, irrigation, and electrical symbols in seconds.</p>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Auto Count</h4>
+                    <p className="text-lg text-muted-foreground">Automatically count planting, irrigation, and electrical symbols in seconds.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-start space-x-6">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                    <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Measure Lengths</h4>
-                    <p className="text-muted-foreground">Automatically measure lengths of irrigation systems.</p>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Measure Lengths</h4>
+                    <p className="text-lg text-muted-foreground">Automatically measure lengths of irrigation systems.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
-                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-start space-x-6">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mt-1 flex-shrink-0">
+                    <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 2h2v4h4v2h-4v4h-2v-4H7v-2h4V5z"/>
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Measure Areas</h4>
-                    <p className="text-muted-foreground">Automatically measure pavers, concrete, and other materials.</p>
+                    <h4 className="text-xl font-semibold text-gray-900 mb-2">Measure Areas</h4>
+                    <p className="text-lg text-muted-foreground">Automatically measure pavers, concrete, and other materials.</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div>
+            <div className="flex items-center">
               <img 
                 src={aiTakeoffsImage} 
                 alt="AI Takeoffs Visualization" 
-                className="w-full rounded-2xl shadow-xl"
+                className="w-full h-full object-cover rounded-2xl"
                 data-testid="overview-1-image"
               />
             </div>
