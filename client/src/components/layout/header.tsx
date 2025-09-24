@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -13,30 +14,32 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2" data-testid="logo">
+          <Link href="/" className="flex items-center space-x-2" data-testid="logo">
             <img 
               src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/landing4-logo.png" 
               alt="Bobyard Logo" 
               className="h-8 w-auto"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8" data-testid="nav-desktop">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-sample">Sample</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-demo">Demo</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-careers">Careers</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-news">News</a>
+            <Link href="/sample" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-sample">Sample</Link>
+            <Link href="/demo" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-demo">Demo</Link>
+            <Link href="/careers" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-careers">Careers</Link>
+            <Link href="/news" className="text-muted-foreground hover:text-primary transition-colors" data-testid="nav-news">News</Link>
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors font-medium" data-testid="link-login">
+            <a href="https://app.bobyard.com/login" className="text-muted-foreground hover:text-primary transition-colors font-medium" data-testid="link-login">
               Login
             </a>
-            <Button className="btn-primary px-6 py-2 rounded-lg text-primary-foreground font-medium" data-testid="button-try-now">
-              Try now
-            </Button>
+            <Link href="/demo">
+              <Button className="btn-primary px-6 py-2 rounded-lg text-primary-foreground font-medium" data-testid="button-try-now">
+                Try now
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -56,14 +59,16 @@ export default function Header() {
         isMenuOpen ? 'transform translate-x-0' : 'transform translate-x-full'
       }`} data-testid="nav-mobile">
         <nav className="p-6 space-y-6">
-          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-sample">Sample</a>
-          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-demo">Demo</a>
-          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-careers">Careers</a>
-          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-news">News</a>
-          <a href="#" className="block text-muted-foreground hover:text-primary transition-colors mt-6" data-testid="nav-mobile-login">Login</a>
-          <Button className="btn-primary w-full px-6 py-2 rounded-lg text-primary-foreground font-medium mt-4" data-testid="button-mobile-try-now">
-            Try now
-          </Button>
+          <Link href="/sample" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-sample">Sample</Link>
+          <Link href="/demo" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-demo">Demo</Link>
+          <Link href="/careers" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-careers">Careers</Link>
+          <Link href="/news" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="nav-mobile-news">News</Link>
+          <a href="https://app.bobyard.com/login" className="block text-muted-foreground hover:text-primary transition-colors mt-6" data-testid="nav-mobile-login">Login</a>
+          <Link href="/demo">
+            <Button className="btn-primary w-full px-6 py-2 rounded-lg text-primary-foreground font-medium mt-4" data-testid="button-mobile-try-now">
+              Try now
+            </Button>
+          </Link>
         </nav>
       </div>
 
