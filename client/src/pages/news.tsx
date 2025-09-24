@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 export default function News() {
   const [isVisible, setIsVisible] = useState(false);
@@ -86,68 +88,74 @@ export default function News() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <section 
-        id="news"
-        className="py-20" 
-        data-testid="section-news"
-      >
-        <div className="container mx-auto px-4 lg:px-6">
-          {/* Header */}
-          <div className={`text-center mb-16 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="news-title">
-              <span className="gradient-text">Bobyard in the news</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="news-subtitle">
-              See how Bobyard is being used in the world
-            </p>
-          </div>
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      <main className="container mx-auto px-4 pt-32 pb-16">
+        <section 
+          id="news"
+          className="py-20" 
+          data-testid="section-news"
+        >
+          <div className="container mx-auto px-4 lg:px-6">
+            {/* Header */}
+            <div className={`text-center mb-16 transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="news-title">
+                <span className="gradient-text">Bobyard in the news</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="news-subtitle">
+                See how Bobyard is being used in the world
+              </p>
+            </div>
 
-          {/* News Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {newsItems.map((item, index) => (
-              <div 
-                key={index}
-                className={`bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-                data-testid={`news-item-${index}`}
-              >
-                <a href={item.link} target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      data-testid={`news-image-${index}`}
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="text-sm text-primary font-medium mb-2" data-testid={`news-date-${index}`}>
-                      {item.date}
+            {/* News Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {newsItems.map((item, index) => (
+                <div 
+                  key={index}
+                  className={`bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                  data-testid={`news-item-${index}`}
+                >
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="aspect-video overflow-hidden">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        data-testid={`news-image-${index}`}
+                      />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 line-clamp-2" data-testid={`news-title-${index}`}>
-                      {item.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3" data-testid={`news-description-${index}`}>
-                      {item.description}
-                    </p>
-                    <div className="mt-4 flex items-center text-primary font-medium">
-                      <span className="text-sm">Read more</span>
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                    <div className="p-6">
+                      <div className="text-sm text-primary font-medium mb-2" data-testid={`news-date-${index}`}>
+                        {item.date}
+                      </div>
+                      <h3 className="text-xl font-bold mb-3 line-clamp-2" data-testid={`news-title-${index}`}>
+                        {item.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3" data-testid={`news-description-${index}`}>
+                        {item.description}
+                      </p>
+                      <div className="mt-4 flex items-center text-primary font-medium">
+                        <span className="text-sm">Read more</span>
+                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </div>
-            ))}
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
+      
+      <Footer />
     </div>
   );
 }
