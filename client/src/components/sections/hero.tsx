@@ -9,7 +9,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-pattern grid-pattern pt-40 pb-20 relative overflow-hidden">
+    <section className="grid-pattern pt-40 pb-20 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-6">
         <div className="max-w-6xl mx-auto text-center">
 

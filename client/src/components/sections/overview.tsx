@@ -32,7 +32,6 @@ export default function Overview() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <p className="text-primary text-lg font-medium mb-4" data-testid="overview-badge">Overview</p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight" data-testid="overview-title">
             <span className="gradient-text">Learn about our success-oriented tools</span>
           </h2>

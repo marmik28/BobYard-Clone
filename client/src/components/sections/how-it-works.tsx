@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import productOverview from "@assets/image_1758726932492.png";
 
 export default function HowItWorks() {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,7 +49,6 @@ export default function HowItWorks() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <p className="text-primary text-lg font-medium mb-4" data-testid="how-it-works-badge">How It Works</p>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6" data-testid="how-it-works-title">
             <span className="gradient-text">Simple 3-step process</span><br />
             <span className="gradient-text">for accurate takeoffs</span>
@@ -82,7 +82,7 @@ export default function HowItWorks() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`} data-testid="how-it-works-image">
           <img 
-            src="https://bobyard-public-images.s3.us-west-2.amazonaws.com/CountDemo-new-ezgif.com-speed.gif" 
+            src={productOverview} 
             alt="Bobyard Landscaping Takeoff Process" 
             className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
           />
