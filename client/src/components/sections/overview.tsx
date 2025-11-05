@@ -91,7 +91,7 @@ export default function Overview() {
               <img 
                 src={aiTakeoffsImage} 
                 alt="AI Takeoffs Visualization" 
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full max-w-[400px] object-cover rounded-2xl"
                 data-testid="overview-1-image"
               />
             </div>

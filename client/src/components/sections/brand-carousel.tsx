@@ -12,7 +12,7 @@ export default function BrandCarousel() {
   ];
 
   return (
-  <section className="py-16 border-b border-border" data-testid="section-brand-carousel">
+  <section className="grid-pattern-2 py-16 border-b border-border" data-testid="section-brand-carousel">
     <div className="container mx-auto px-4 lg:px-6">
       <div className="text-center mb-12">
         <p className="text-muted-foreground text-lg" data-testid="carousel-title">

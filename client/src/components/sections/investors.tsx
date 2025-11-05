@@ -22,12 +22,12 @@ export default function Investors() {
   const investors = [
     {
       name: "Pear VC",
-      logo: "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/v1397180227/b541f0c33e6723718c9e5b7bb89dbf19.png",
+      logo: "https://bobyard-public-images.s3.us-west-2.amazonaws.com/Pear-Logo.svg",
       description: "Seed specialists partnering with founders at the earliest stages"
     },
     {
       name: "Primary Venture Partners", 
-      logo: "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/v1481840997/xrxgozwvdm4onqfj1iqu.png",
+      logo: "https://bobyard-public-images.s3.us-west-2.amazonaws.com/primary+vc+logo.png",
       description: "Leading seed firm backing NYC's most visionary founders"
     }
   ];
